@@ -70,8 +70,7 @@ impl<'db> TrieMut for FatDBMut<'db> {
 		self.raw.contains(&keccak(key))
 	}
 
-	fn get<'a, 'key>(&'a self, key: &'key [u8]) -> super::Result<Option<DBValue>>
-		where 'a: 'key
+	fn get(&self, key: &[u8]) -> super::Result<Option<DBValue>>
 	{
 		self.raw.get(&keccak(key))
 	}

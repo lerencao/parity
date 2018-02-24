@@ -883,7 +883,7 @@ impl<'a> TrieMut for TrieDBMut<'a> {
 		}
 	}
 
-	fn get<'x, 'key>(&'x self, key: &'key [u8]) -> super::Result<Option<DBValue>> where 'x: 'key {
+	fn get(&self, key: &[u8]) -> super::Result<Option<DBValue>> {
 		self.lookup(NibbleSlice::new(key), &self.root_handle)
 	}
 

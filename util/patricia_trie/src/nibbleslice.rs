@@ -99,6 +99,7 @@ impl<'a, 'view> NibbleSlice<'a> where 'a: 'view {
 	}
 
 	/// Create a new nibble slice from the given HPE encoded data (e.g. output of `encoded()`).
+	/// return the slice and is_leaf
 	pub fn from_encoded(data: &'a [u8]) -> (NibbleSlice, bool) {
 		(Self::new_offset(data, if data[0] & 16 == 16 {1} else {2}), data[0] & 32 == 32)
 	}
